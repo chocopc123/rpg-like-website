@@ -1,9 +1,5 @@
 import { S } from './data.js';
 
-function escapeHTML(str) {
-    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
-
 let cur_scene = "home";
 let sel_idx   = 0;
 let typing    = false;
@@ -73,7 +69,7 @@ function goScene(key) {
 
 function typeMsg(text, done) {
     clearTimeout(type_tid);
-    msgEl.innerHTML = "";
+    msgEl.textContent = "";
     tcur.style.display = "inline-block";
     arrow.classList.remove("show");
     typing = true;
@@ -81,7 +77,6 @@ function typeMsg(text, done) {
     // Array.fromでサロゲートペアも正しく1文字ずつ分割
     const chars = Array.from(text);
     let i = 0;
-    let currentHtml = ""; // DOMの頻繁な更新を避けるための変数
 
     function tick() {
         if (i >= chars.length) {
@@ -93,11 +88,10 @@ function typeMsg(text, done) {
         }
         const ch = chars[i++];
         if (ch === "\n") {
-            currentHtml += "<br>";
+            msgEl.appendChild(document.createElement("br"));
         } else {
-            currentHtml += escapeHTML(ch);
+            msgEl.appendChild(document.createTextNode(ch));
         }
-        msgEl.innerHTML = currentHtml;
         type_tid = setTimeout(tick, ch === "\n" ? 55 : 32);
     }
     tick();
@@ -109,8 +103,15 @@ function skipType() {
     typing = false;
     tcur.style.display = "none";
     arrow.classList.add("show");
+
+    msgEl.textContent = "";
     const lines = S[cur_scene].msg.split("\n");
-    msgEl.innerHTML = lines.map(l => escapeHTML(l)).join("<br>");
+    lines.forEach((line, index) => {
+        msgEl.appendChild(document.createTextNode(line));
+        if (index < lines.length - 1) {
+            msgEl.appendChild(document.createElement("br"));
+        }
+    });
 }
 
 document.addEventListener("keydown", (e) => {
