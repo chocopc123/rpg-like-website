@@ -1,5 +1,9 @@
 import { S } from './data.js';
 
+function escapeHTML(str) {
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
 let cur_scene = "home";
 let sel_idx   = 0;
 let typing    = false;
@@ -90,7 +94,7 @@ function typeMsg(text, done) {
         if (ch === "\n") {
             msgEl.innerHTML += "<br>";
         } else {
-            msgEl.innerHTML += ch.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            msgEl.innerHTML += escapeHTML(ch);
         }
         type_tid = setTimeout(tick, ch === "\n" ? 55 : 32);
     }
@@ -104,7 +108,7 @@ function skipType() {
     tcur.style.display = "none";
     arrow.classList.add("show");
     const lines = S[cur_scene].msg.split("\n");
-    msgEl.innerHTML = lines.map(l => l.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).join("<br>");
+    msgEl.innerHTML = lines.map(l => escapeHTML(l)).join("<br>");
 }
 
 document.addEventListener("keydown", (e) => {
