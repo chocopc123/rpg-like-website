@@ -29,7 +29,7 @@ export const S = {
         loc:  "📍 宝物庫",
         msg:  "これまでの冒険の記録……\n\n🏰 フルスタック Web アプリ\n🌱 水耕栽培モニタリング\n🎮 LoL データダッシュボード\n📝 AI 活用コーディングツール",
         cmds: [
-            { t:"GitHub をひらく", fn: function(){ window.open("https://github.com","_blank"); } },
+            { t:"GitHub をひらく", fn: function(){ window.open("https://github.com","_blank", "noopener,noreferrer"); } },
             { t:"もどる",          to:"home" }
         ]
     },
