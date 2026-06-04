@@ -157,28 +157,28 @@ bindDpad("dL", "left");
 bindDpad("dR", "right");
 
 const btnA = document.getElementById("btnA");
-btnA.addEventListener("touchstart", (e) => {
-    e.preventDefault();
+const handleBtnA = (e) => {
+    if (e && e.type === "touchstart") e.preventDefault();
     if (typing) skipType(); else execCmd();
-}, { passive: false });
-btnA.addEventListener("click", () => {
-    if (typing) skipType(); else execCmd();
-});
+};
+btnA.addEventListener("touchstart", handleBtnA, { passive: false });
+btnA.addEventListener("click", handleBtnA);
 
 const btnB = document.getElementById("btnB");
-btnB.addEventListener("touchstart", (e) => {
-    e.preventDefault();
+const handleBtnB = (e) => {
+    if (e && e.type === "touchstart") e.preventDefault();
     if (cur_scene !== "home") goScene("home");
-}, { passive: false });
-btnB.addEventListener("click", () => {
-    if (cur_scene !== "home") goScene("home");
-});
+};
+btnB.addEventListener("touchstart", handleBtnB, { passive: false });
+btnB.addEventListener("click", handleBtnB);
 
-msgWin.addEventListener("touchstart", (e) => {
-    if (typing) { e.preventDefault(); skipType(); }
-}, { passive: false });
-msgWin.addEventListener("click", () => {
-    if (typing) skipType();
-});
+const handleMsgWin = (e) => {
+    if (typing) {
+        if (e && e.type === "touchstart") e.preventDefault();
+        skipType();
+    }
+};
+msgWin.addEventListener("touchstart", handleMsgWin, { passive: false });
+msgWin.addEventListener("click", handleMsgWin);
 
 goScene("home");
