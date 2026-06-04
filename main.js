@@ -77,6 +77,7 @@ function typeMsg(text, done) {
     // Array.fromでサロゲートペアも正しく1文字ずつ分割
     const chars = Array.from(text);
     let i = 0;
+    let currentHtml = ""; // DOMの頻繁な更新を避けるための変数
 
     function tick() {
         if (i >= chars.length) {
@@ -88,10 +89,11 @@ function typeMsg(text, done) {
         }
         const ch = chars[i++];
         if (ch === "\n") {
-            msgEl.innerHTML += "<br>";
+            currentHtml += "<br>";
         } else {
-            msgEl.innerHTML += ch.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            currentHtml += ch.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
         }
+        msgEl.innerHTML = currentHtml;
         type_tid = setTimeout(tick, ch === "\n" ? 55 : 32);
     }
     tick();
