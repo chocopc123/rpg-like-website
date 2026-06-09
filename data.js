@@ -11,7 +11,7 @@ export const S = {
     },
     skills: {
         loc:  "📍 修練の間",
-        msg:  "CHOCO の ちからを しらべた。\n\n⚔ TypeScript    ★★★★★\n🔮 React/Next.js ★★★★★\n🛡 Go / Python   ★★★★☆\n✨ AI 連携       ★★★★☆\n🗺 DB設計        ★★★★☆",
+        msg:  "CHOCO の ちからを しらべた。\n\n🎨 フロントエンド ★★★★☆\n⚙ バックエンド   ★★★☆☆\n☁ インフラ       ★★☆☆☆\n💡 アイデア       ★★★★☆\n🤖 AI活用         ★★★★☆",
         cmds: [
             { t:"さらにくわしく", to:"skills2" },
             { t:"もどる",         to:"home"    }
@@ -19,7 +19,7 @@ export const S = {
     },
     skills2: {
         loc:  "📍 修練の間・深部",
-        msg:  "使いこなす武器の数々……\n\n🖥 VS Code / Claude Code\n🌐 Next.js / Tailwind CSS\n⚙ Node.js / Prisma / tRPC\n☁ Vercel / Cloudflare Workers\n🤖 Gemini / Claude API",
+        msg:  "そうび と アイテム……\n\n🖥 VS Code / Antigravity\n🌐 TypeScript / Next.js / Tailwind CSS\n☁ Vercel / GCP\n🤖 Gemini / Claude",
         cmds: [
             { t:"もどる",    to:"skills" },
             { t:"トップへ", to:"home"   }
@@ -27,17 +27,18 @@ export const S = {
     },
     works: {
         loc:  "📍 宝物庫",
-        msg:  "これまでの冒険の記録……\n\n🏰 フルスタック Web アプリ\n🌱 水耕栽培モニタリング\n🎮 ゲームデータダッシュボード\n📝 AI 活用コーディングツール",
+        msg:  "これまでの冒険の記録……\n\n🍑 コギ尻ポートフォリオサイト\n🌱 たねログ - 家庭菜園記録アプリ\n🏘️ sakanakaVillage - トライアルランドHP\netc...",
         cmds: [
-            { t:"GitHub をひらく", fn: function(){ window.open("https://github.com","_blank", "noopener,noreferrer"); } },
+            { t:"GitHub をひらく", fn: function(){ window.open("https://github.com/chocopc123","_blank", "noopener,noreferrer"); } },
             { t:"もどる",          to:"home" }
         ]
     },
     contact: {
         loc:  "📍 伝書鳩の塔",
-        msg:  "CHOCO に ことづてを たのんだ。\n\n📧 hello@example.com\n🐦 @duckchoco_dev\n💼 LinkedIn プロフィール",
+        msg:  "CHOCO に ことづてを たのんだ。\n\n📧 choco.rgi.duck@gmail.com\n🐦 @choco_rgi_duck",
         cmds: [
-            { t:"メールをおくる", fn: function(){ location.href="mailto:hello@example.com"; } },
+            { t:"メールをおくる", fn: function(){ location.href="mailto:choco.rgi.duck@gmail.com"; } },
+            { t:"Xをひらく",     fn: function(){ window.open("https://x.com/choco_rgi_duck","_blank", "noopener,noreferrer"); } },
             { t:"もどる",         to:"home" }
         ]
     },
