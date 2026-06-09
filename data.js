@@ -27,9 +27,9 @@ export const S = {
     },
     works: {
         loc:  "📍 宝物庫",
-        msg:  "これまでの冒険の記録……\n\n🏰 フルスタック Web アプリ\n🌱 水耕栽培モニタリング\n🎮 LoL データダッシュボード\n📝 AI 活用コーディングツール",
+        msg:  "これまでの冒険の記録……\n\n🍑 コギ尻ポートフォリオサイト\n🌱 たねログ - 家庭菜園記録アプリ\n🏘️ sakanakaVillage - トライアルランドHP\netc...",
         cmds: [
-            { t:"GitHub をひらく", fn: function(){ window.open("https://github.com","_blank", "noopener,noreferrer"); } },
+            { t:"GitHub をひらく", fn: function(){ window.open("https://github.com/chocopc123","_blank", "noopener,noreferrer"); } },
             { t:"もどる",          to:"home" }
         ]
     },
