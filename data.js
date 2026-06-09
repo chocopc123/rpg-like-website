@@ -35,9 +35,10 @@ export const S = {
     },
     contact: {
         loc:  "📍 伝書鳩の塔",
-        msg:  "CHOCO に ことづてを たのんだ。\n\n📧 hello@example.com\n🐦 @duckchoco_dev\n💼 LinkedIn プロフィール",
+        msg:  "CHOCO に ことづてを たのんだ。\n\n📧 choco.rgi.duck@gmail.com\n🐦 @choco_rgi_duck",
         cmds: [
-            { t:"メールをおくる", fn: function(){ location.href="mailto:hello@example.com"; } },
+            { t:"メールをおくる", fn: function(){ location.href="mailto:choco.rgi.duck@gmail.com"; } },
+            { t:"Xをひらく",     fn: function(){ window.open("https://x.com/choco_rgi_duck","_blank", "noopener,noreferrer"); } },
             { t:"もどる",         to:"home" }
         ]
     },
