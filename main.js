@@ -59,11 +59,14 @@ function goScene(key) {
         sel_idx   = 0;
         locEl.textContent = S[key].loc;
         renderCmds();
+        msgEl.innerHTML = "";
+        tcur.style.display = "none";
+        arrow.classList.remove("show");
         ov.classList.remove("on");
-        busy = false;
         setTimeout(() => {
+            busy = false;
             typeMsg(S[key].msg, null);
-        }, 80);
+        }, 280);
     }, 300);
 }
 
