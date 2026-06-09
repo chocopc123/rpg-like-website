@@ -28,13 +28,16 @@ function renderCmds() {
         div.className = `cmd${idx === sel_idx ? " on" : ""}`;
         div.textContent = cmd.t;
         div.addEventListener("mouseenter", () => {
+            if (sel_idx === idx) return;
             sel_idx = idx;
             renderCmds();
         });
         div.addEventListener("click", () => {
-            sel_idx = idx;
-            renderCmds();
-            execCmd();
+            if (sel_idx !== idx) {
+                sel_idx = idx;
+                renderCmds();
+            }
+            if (typing) skipType(); else execCmd();
         });
         cmdWin.appendChild(div);
     });
