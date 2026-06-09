@@ -11,7 +11,7 @@ export const S = {
     },
     skills: {
         loc:  "📍 修練の間",
-        msg:  "CHOCO の ちからを しらべた。\n\n⚔ TypeScript    ★★★★★\n🔮 React/Next.js ★★★★★\n🛡 Go / Python   ★★★★☆\n✨ AI 連携       ★★★★☆\n🗺 DB設計        ★★★★☆",
+        msg:  "CHOCO の ちからを しらべた。\n\n🎨 フロントエンド ★★★★☆\n⚙ バックエンド   ★★★☆☆\n☁ インフラ       ★★☆☆☆\n💡 アイデア       ★★★★☆\n🤖 AI活用         ★★★★☆",
         cmds: [
             { t:"さらにくわしく", to:"skills2" },
             { t:"もどる",         to:"home"    }
@@ -19,7 +19,7 @@ export const S = {
     },
     skills2: {
         loc:  "📍 修練の間・深部",
-        msg:  "使いこなす武器の数々……\n\n🖥 VS Code / Claude Code\n🌐 Next.js / Tailwind CSS\n⚙ Node.js / Prisma / tRPC\n☁ Vercel / Cloudflare Workers\n🤖 Gemini / Claude API",
+        msg:  "そうび と アイテム……\n\n🖥 VS Code / Antigravity\n🌐 TypeScript / Next.js / Tailwind CSS\n☁ Vercel / GCP\n🤖 Gemini / Claude",
         cmds: [
             { t:"もどる",    to:"skills" },
             { t:"トップへ", to:"home"   }
