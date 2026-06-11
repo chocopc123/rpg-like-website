@@ -4,6 +4,11 @@
             /* 2x2のドット網点パターン (1pxずつのチェッカー) */
             --dither-img: conic-gradient(rgba(0,0,0,0.18) 90deg, transparent 90deg 180deg, rgba(0,0,0,0.18) 180deg 270deg, transparent 270deg);
             --dither-size: 2px 2px;
+            /* SFC風スキャンライン */
+            --scanline: repeating-linear-gradient(0deg, rgba(0,0,0,0.2) 0px, rgba(0,0,0,0.2) 1px, transparent 1px, transparent 2px);
+            --gold: #c8b870;
+            --gold-hi: #e8d890;
+            --gold-sh: #605020;
         }
 
         body {
@@ -131,17 +136,25 @@
         }
         @media (pointer:coarse) { #ctrl { display:flex; } }
 
-        .dpad { display:grid; grid-template-columns:repeat(3,44px); grid-template-rows:repeat(3,44px); gap:3px; }
+        .dpad { display:grid; grid-template-columns:repeat(3,46px); grid-template-rows:repeat(3,46px); gap:6px; }
         .dp {
-            background:#000050;
-            color:#c8b870; font-size:1.1rem;
-            display:flex; align-items:center; justify-content:center;
-            touch-action:manipulation; user-select:none;
-            border: 1px solid #111;
-            box-shadow: 0 0 0 1px #444, inset 0 0 0 1px rgba(255,255,255,0.1);
-            border-radius: 2px;
+            background-color: #000080;
+            background-image: var(--scanline);
+            color: var(--gold);
+            font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center;
+            touch-action: manipulation; user-select: none;
+            border: 2px solid var(--gold);
+            border-radius: 4px;
+            box-shadow:
+                0 0 0 2px #000,
+                inset 2px 0 0 0 var(--gold-hi),
+                inset 0 2px 0 0 var(--gold-hi),
+                inset -2px 0 0 0 var(--gold-sh),
+                inset 0 -2px 0 0 var(--gold-sh);
+            text-shadow: 0 2px 0 rgba(0,0,0,0.5);
         }
-        .dp:active { background:#0000b0; border-color:#c8b870; }
+        .dp:active { background-color:#000040; transform: scale(0.95); }
         .dp.x { background:transparent; border-color:transparent; pointer-events:none; }
 
         .abtns { display:flex; flex-direction:column; gap:10px; margin-left:8px; }
@@ -151,32 +164,30 @@
             text-align:center; touch-action:manipulation; user-select:none; cursor:pointer;
         }
         .ab-a {
-            background: linear-gradient(135deg, #0000a0 0%, #000060 100%);
-            color:#fff;
-            text-shadow: 1px 1px 0 #000;
-            border: 2px solid #c8b870;
+            background-color: #000080;
+            background-image: var(--scanline);
+            color: #fff;
+            text-shadow: 1px 2px 0 #000;
+            border: 2px solid var(--gold);
             box-shadow:
                 0 0 0 2px #000,
-                inset 2px 0 0 0 #e8d890,
-                inset 0 2px 0 0 #e8d890,
-                inset -2px 0 0 0 #605020,
-                inset 0 -2px 0 0 #605020,
-                inset 4px 4px 0 0 rgba(255,255,255,0.1),
-                inset -4px -4px 0 0 rgba(0,0,0,0.2);
+                inset 2px 0 0 0 var(--gold-hi),
+                inset 0 2px 0 0 var(--gold-hi),
+                inset -2px 0 0 0 var(--gold-sh),
+                inset 0 -2px 0 0 var(--gold-sh);
         }
-        .ab-a:active { background:#000040; box-shadow: 0 0 0 2px #000, inset 0 0 0 4px #000; }
+        .ab-a:active { background-color:#000040; transform: scale(0.95); }
         .ab-b {
-            background: linear-gradient(135deg, #700000 0%, #400000 100%);
-            color:#ffaaaa;
-            text-shadow: 1px 1px 0 #300000;
-            border: 2px solid #a04040;
+            background-color: #800000;
+            background-image: var(--scanline);
+            color: #fff;
+            text-shadow: 1px 2px 0 #000;
+            border: 2px solid var(--gold);
             box-shadow:
                 0 0 0 2px #000,
-                inset 2px 0 0 0 #ff8080,
-                inset 0 2px 0 0 #ff8080,
-                inset -2px 0 0 0 #301010,
-                inset 0 -2px 0 0 #301010,
-                inset 4px 4px 0 0 rgba(255,255,255,0.1),
-                inset -4px -4px 0 0 rgba(0,0,0,0.2);
+                inset 2px 0 0 0 var(--gold-hi),
+                inset 0 2px 0 0 var(--gold-hi),
+                inset -2px 0 0 0 var(--gold-sh),
+                inset 0 -2px 0 0 var(--gold-sh);
         }
-        .ab-b:active { background:#300000; box-shadow: 0 0 0 2px #000, inset 0 0 0 4px #000; }
+        .ab-b:active { background-color:#400000; transform: scale(0.95); }
